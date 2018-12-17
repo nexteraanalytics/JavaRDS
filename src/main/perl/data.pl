@@ -85,7 +85,7 @@ sub dataframe {
 
 {
   package integer;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {015}
   sub data {
     my (undef, $d) = @_;
@@ -95,7 +95,7 @@ sub dataframe {
 
 {
   package list;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {0x13}
   sub data {
     my (undef, $d) = @_;
@@ -105,7 +105,7 @@ sub dataframe {
 
 {
   package float;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {016}
   sub data {
     my (undef, $d) = @_;
@@ -115,7 +115,7 @@ sub dataframe {
 
 {
   package boolean;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {012}
   sub data {
     my (undef, $d) = @_;
@@ -125,7 +125,7 @@ sub dataframe {
 
 {
   package string;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {020}
   sub data {
     my (undef, $d) = @_;
@@ -136,7 +136,7 @@ sub dataframe {
 {
   # This is used for attributes too
   package pairlist;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {}
   sub data {
     my (undef, $d) = @_;
@@ -172,7 +172,7 @@ sub dataframe {
 
 {
   package null;
-  our @ISA = qw(com.windlogics.r.serialize.RThing);
+  our @ISA = qw(RThing);
   sub type {0376}
   sub data {''}
 }
