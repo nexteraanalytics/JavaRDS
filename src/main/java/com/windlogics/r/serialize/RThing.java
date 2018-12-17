@@ -10,7 +10,6 @@ import java.util.List;
 public abstract class RThing<T> {
     protected List<T> data;
     private RPairlist attrs;
-    protected static int type = 0;  // Override in subclasses
 
     public RThing(List<T> data, RPairlist attrs) {
         this.data = data;
@@ -65,5 +64,5 @@ public abstract class RThing<T> {
     }
 
     public abstract void putData(DataOutputStream os) throws IOException;
-    public int type() { return type; }
+    public int type() { return 0; } // Override in subclasses
 }

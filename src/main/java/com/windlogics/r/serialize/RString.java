@@ -8,7 +8,7 @@ public class RString extends RThing<String> {
     private static int STRING_START = 0x40009; // Probably an encoding marker?
 
     public RString(List<String> d) { this(d, null); }
-    public RString(List<String> d, RPairlist attrs) { super(d, attrs); type = 0x10; }
+    public RString(List<String> d, RPairlist attrs) { super(d, attrs); }
     @Override public void putData(DataOutputStream os) throws IOException {
         os.writeInt(data.size());
         for (String i : data) {
@@ -20,5 +20,9 @@ public class RString extends RThing<String> {
 
     public static int getStringStart() {
         return STRING_START;
+    }
+
+    @Override public int type() {
+        return 0x10;
     }
 }
