@@ -1,3 +1,5 @@
+package com.windlogics.r.serialize;
+
 import java.io.DataOutputStream;
 
 public class RNull extends RThing<Object> {
