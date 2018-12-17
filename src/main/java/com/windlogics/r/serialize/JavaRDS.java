@@ -66,8 +66,8 @@ public class JavaRDS {
     public static RThing RDataframe(Object... elements) {
         RList df = NamedList(elements);
         df.setClass("data.frame");
-        // Mutable version of Arrays.asList(...);
-        df.setAttr("row.names", new RInteger(new Integer[]{NA_INT, -1}));
+        int num_rows = df.data.get(0).data.size();
+        df.setAttr("row.names", new RInteger(new Integer[]{NA_INT, -num_rows}));
         return df;
     }
 }
