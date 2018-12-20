@@ -54,6 +54,7 @@ public class JavaRDSTest {
                 ).setAttr("row.names", new RString(Arrays.asList("aaMI/aaMI_1.0-0.tar.gz", "aaMI/aaMI_1.0-1.tar.gz")))
         );
 
+        // TODO this file is not byte-for-byte what R's saveRDS would produce, but it deserializes to something that passes R's all.equal() test.
         assertBytes(data, "archive-nongzip.rds");
     }
 
@@ -116,11 +117,10 @@ public class JavaRDSTest {
         assertBytes(data, "df.rds");
 
         data = RDataframe(
-                "x", new RInteger(Arrays.asList(1)),
-                "y", new RInteger(Arrays.asList(436)).setClass("octmode")
+                "y", new RInteger(Collections.singletonList(436)).setClass("octmode")
         );
 
-        Files.write(Paths.get("dat.rds"), toBytes(data));
+        // TODO this file is not byte-for-byte what R's saveRDS would produce, but it deserializes to something that passes R's all.equal() test.
         assertBytes(data, "ar-1.rds");
     }
 
