@@ -80,6 +80,9 @@ public class JavaRDS {
         return (v << 16) | (p << 8) | s;
     }
 
+    /**
+     * Serialize object to an OutputStream, optionally GZIP-compressing output.
+     */
     public static void writeRDS(RThing x, OutputStream os, boolean compress) throws IOException {
         if (compress) {
             os = new GZIPOutputStream(os);
@@ -95,10 +98,16 @@ public class JavaRDS {
         x.serialize(dos);
     }
 
+    /**
+     * Serialize object to an OutputStream, GZIP-compressing output.
+     */
     public static void writeRDS(RThing x, OutputStream os) throws IOException {
         writeRDS(x, os, true);
     }
 
+    /**
+     * Serialize object to a file on disk, GZIP-compressing output.
+     */
     public static void writeRDS(RThing x, String file) throws IOException {
         writeRDS(x, new FileOutputStream(file));
     }
@@ -107,7 +116,9 @@ public class JavaRDS {
 
     private static int NA_INT = 1 << 31;
 
-    // Shortcuts
+    /**
+     * Create a new R `POSIXct` object with no timezone information
+     */
     public static RThing RPOSIXct(List<Double> dates) {
         RFloat x = new RFloat(dates);
         // Mutable version of Arrays.asList(...);
@@ -115,6 +126,13 @@ public class JavaRDS {
         return x;
     }
 
+    /**
+     * Create an R `list` with names.
+     *
+     * @param elements
+     *   a list of objects - elements should alternate between `String`s and `RThing`s.  Each String
+     *   name is followed by its corresponding value in the list.
+     */
     public static RList RNamedList(Object... elements) {
         List<String> keys = new ArrayList<>();
         List<RThing> vals = new ArrayList<>();
@@ -125,6 +143,17 @@ public class JavaRDS {
         return new RList(vals, new RPairlist().setAttr("names", new RString(keys)));
     }
 
+    /**
+     * Create a new `data.frame` with no
+     * @param elements
+     *   a list of objects - elements should alternate between `String`s and
+     *   `RThing`s.  Each String name is followed by its corresponding value in
+     *   the list.  All values should have the same length, but this is not currently
+     *   enforced (until you try to load the data in R, when you will probably get
+     *   an error).
+     *
+     * @return
+     */
     public static RThing RDataframe(Object... elements) {
         RList df = RNamedList(elements);
         df.setClass("data.frame");
