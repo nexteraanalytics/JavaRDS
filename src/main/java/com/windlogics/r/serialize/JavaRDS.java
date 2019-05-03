@@ -17,7 +17,7 @@ import java.util.zip.GZIPOutputStream;
  * An example of usage:
  *
  * <pre>
- * RList data = NamedList(
+ * RList data = RNamedList(
  *   "A3", RDataframe(
  *           "size", new RFloat(Arrays.asList(45252d, 45907d)),
  *           "isdir", new RBoolean(Arrays.asList(false, false)),
@@ -115,7 +115,7 @@ public class JavaRDS {
         return x;
     }
 
-    public static RList NamedList(Object... elements) {
+    public static RList RNamedList(Object... elements) {
         List<String> keys = new ArrayList<>();
         List<RThing> vals = new ArrayList<>();
         for (int i = 0; i < elements.length; i += 2) {
@@ -126,7 +126,7 @@ public class JavaRDS {
     }
 
     public static RThing RDataframe(Object... elements) {
-        RList df = NamedList(elements);
+        RList df = RNamedList(elements);
         df.setClass("data.frame");
         int num_rows = df.data.get(0).data.size();
         df.setAttr("row.names", new RInteger(new Integer[]{NA_INT, -num_rows}));

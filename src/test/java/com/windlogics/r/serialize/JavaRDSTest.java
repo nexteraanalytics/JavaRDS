@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 
-import static com.windlogics.r.serialize.JavaRDS.NamedList;
+import static com.windlogics.r.serialize.JavaRDS.RNamedList;
 import static com.windlogics.r.serialize.JavaRDS.RDataframe;
 import static com.windlogics.r.serialize.JavaRDS.RPOSIXct;
 
@@ -26,7 +26,7 @@ public class JavaRDSTest {
     @Test
     public void writeRDS() throws IOException {
 
-        RList data = NamedList(
+        RList data = RNamedList(
                 "A3", RDataframe(
                         "size", new RFloat(Arrays.asList(45252d, 45907d)),
                         "isdir", new RBoolean(Arrays.asList(false, false)),
@@ -80,7 +80,7 @@ public class JavaRDSTest {
 
     @Test
     public void test_list() throws IOException {
-        RList data = NamedList(
+        RList data = RNamedList(
                 "A", new RInteger(Arrays.asList(1, 2, 3)),
                 "AB", new RInteger(Arrays.asList(1, 2))
         );
