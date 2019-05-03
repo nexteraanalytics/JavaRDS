@@ -53,7 +53,7 @@ public class RPairlist extends RThing<Object> {
         return content.size();
     }
 
-    public boolean hasKey(String key) {
+    public boolean containsKey(String key) {
         return content.containsKey(key);
     }
 

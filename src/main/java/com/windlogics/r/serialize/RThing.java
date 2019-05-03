@@ -38,7 +38,7 @@ public abstract class RThing<T> {
             if (attrs.length() > 0)
                 flags |= 1 << 9;
 
-            if (attrs.hasKey("class"))
+            if (attrs.containsKey("class"))
                 flags |= 1 << 8;
         }
 
