@@ -13,7 +13,7 @@ import java.util.Collections;
 
 import static com.windlogics.r.serialize.JavaRDS.NamedList;
 import static com.windlogics.r.serialize.JavaRDS.RDataframe;
-import static com.windlogics.r.serialize.JavaRDS.RDate;
+import static com.windlogics.r.serialize.JavaRDS.RPOSIXct;
 
 public class JavaRDSTest {
 
@@ -31,9 +31,9 @@ public class JavaRDSTest {
                         "size", new RFloat(Arrays.asList(45252d, 45907d)),
                         "isdir", new RBoolean(Arrays.asList(false, false)),
                         "mode", new RInteger(Arrays.asList(436, 436)).setClass("octmode"),
-                        "mtime", RDate(Arrays.asList(1360227629.28697d, 1364324320d)),
-                        "ctime", RDate(Arrays.asList(1543489579.69805d, 1543489579.69805d)),
-                        "atime", RDate(Arrays.asList(1543450562.88206d, 1543450563.03406d)),
+                        "mtime", RPOSIXct(Arrays.asList(1360227629.28697d, 1364324320d)),
+                        "ctime", RPOSIXct(Arrays.asList(1543489579.69805d, 1543489579.69805d)),
+                        "atime", RPOSIXct(Arrays.asList(1543450562.88206d, 1543450563.03406d)),
                         "uid", new RInteger(Arrays.asList(1001, 1010)),
                         "gid", new RInteger(Arrays.asList(1001, 1001)),
                         "uname", new RString(Arrays.asList("hornik", "ligges")),
@@ -44,9 +44,9 @@ public class JavaRDSTest {
                         "size", new RFloat(Arrays.asList(2968d, 3487d)),
                         "isdir", new RBoolean(Arrays.asList(false, false)),
                         "mode", new RInteger(Arrays.asList(436, 436)).setClass("octmode"),
-                        "mtime", RDate(Arrays.asList(1119628517d, 1129577058d)),
-                        "ctime", RDate(Arrays.asList(1543489579.60206, 1543489579.60206)),
-                        "atime", RDate(Arrays.asList(1543451154.65134, 1543451154.65534)),
+                        "mtime", RPOSIXct(Arrays.asList(1119628517d, 1129577058d)),
+                        "ctime", RPOSIXct(Arrays.asList(1543489579.60206, 1543489579.60206)),
+                        "atime", RPOSIXct(Arrays.asList(1543451154.65134, 1543451154.65534)),
                         "uid", new RInteger(Arrays.asList(0, 0)),
                         "gid", new RInteger(Arrays.asList(1001, 1001)),
                         "uname", new RString(Arrays.asList("root", "root")),
@@ -105,7 +105,7 @@ public class JavaRDSTest {
 
     @Test
     public void test_date() throws IOException {
-        RThing data = RDate(Arrays.asList(1360227629.28697013855d, 1364324320d));
+        RThing data = RPOSIXct(Arrays.asList(1360227629.28697013855d, 1364324320d));
         assertBytes(data, "dates.rds");
     }
 

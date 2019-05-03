@@ -21,9 +21,9 @@ import java.util.zip.GZIPOutputStream;
  *   "A3", RDataframe(
  *           "size", new RFloat(Arrays.asList(45252d, 45907d)),
  *           "isdir", new RBoolean(Arrays.asList(false, false)),
- *           "mtime", RDate(Arrays.asList(1360227629.28697d, 1364324320d)),
- *           "ctime", RDate(Arrays.asList(1543489579.69805d, 1543489579.69805d)),
- *           "atime", RDate(Arrays.asList(1543450562.88206d, 1543450563.03406d)),
+ *           "mtime", RPOSIXct(Arrays.asList(1360227629.28697d, 1364324320d)),
+ *           "ctime", RPOSIXct(Arrays.asList(1543489579.69805d, 1543489579.69805d)),
+ *           "atime", RPOSIXct(Arrays.asList(1543450562.88206d, 1543450563.03406d)),
  *           "uid", new RInteger(Arrays.asList(1001, 1010)),
  *           "gid", new RInteger(Arrays.asList(1001, 1001)),
  *           "uname", new RString(Arrays.asList("hornik", "ligges")),
@@ -32,9 +32,9 @@ import java.util.zip.GZIPOutputStream;
  *   "aaMI", RDataframe(
  *           "size", new RFloat(Arrays.asList(2968d, 3487d)),
  *           "isdir", new RBoolean(Arrays.asList(false, false)),
- *           "mtime", RDate(Arrays.asList(1119628517d, 1129577058d)),
- *           "ctime", RDate(Arrays.asList(1543489579.60206, 1543489579.60206)),
- *           "atime", RDate(Arrays.asList(1543451154.65134, 1543451154.65534)),
+ *           "mtime", RPOSIXct(Arrays.asList(1119628517d, 1129577058d)),
+ *           "ctime", RPOSIXct(Arrays.asList(1543489579.60206, 1543489579.60206)),
+ *           "atime", RPOSIXct(Arrays.asList(1543451154.65134, 1543451154.65534)),
  *           "uid", new RInteger(Arrays.asList(0, 0)),
  *           "gid", new RInteger(Arrays.asList(1001, 1001)),
  *           "uname", new RString(Arrays.asList("root", "root")),
@@ -109,7 +109,7 @@ public class JavaRDS {
     private static int NA_INT = 1 << 31;
 
     // Shortcuts
-    public static RThing RDate(List<Double> dates) {
+    public static RThing RPOSIXct(List<Double> dates) {
         RFloat x = new RFloat(dates);
         // Mutable version of Arrays.asList(...);
         x.setClass("POSIXct", "POSIXt");
