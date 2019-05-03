@@ -86,5 +86,5 @@ public abstract class RThing<T> {
     }
 
     public abstract void putData(DataOutputStream os) throws IOException;
-    public int type() { return 0; } // Override in subclasses
+    public abstract int type();
 }

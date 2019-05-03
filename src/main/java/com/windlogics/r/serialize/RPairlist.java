@@ -44,6 +44,11 @@ public class RPairlist extends RThing<Object> {
         new RNull().serialize(os);
     }
 
+    @Override
+    public int type() {
+        return 0;
+    }
+
     public int length() {
         return content.size();
     }
