@@ -5,7 +5,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.zip.GZIPOutputStream;
 
@@ -120,10 +119,7 @@ public class JavaRDS {
      * Create a new R `POSIXct` object with no timezone information
      */
     public static RThing RPOSIXct(List<Double> dates) {
-        RFloat x = new RFloat(dates);
-        // Mutable version of Arrays.asList(...);
-        x.setClass("POSIXct", "POSIXt");
-        return x;
+        return new RFloat(dates).setClass("POSIXct", "POSIXt");
     }
 
     /**
@@ -157,8 +153,8 @@ public class JavaRDS {
     public static RThing RDataframe(Object... elements) {
         RList df = RNamedList(elements);
         df.setClass("data.frame");
-        int num_rows = df.data.get(0).data.size();
-        df.setAttr("row.names", new RInteger(new Integer[]{NA_INT, -num_rows}));
+        int numRows = df.data.get(0).data.size();
+        df.setAttr("row.names", new RInteger(new Integer[]{NA_INT, -numRows}));
         return df;
     }
 }
