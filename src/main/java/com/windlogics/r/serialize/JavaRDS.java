@@ -140,7 +140,7 @@ public class JavaRDS {
             keys.add((String) elements[i]);
             vals.add((RThing) elements[i + 1]);
         }
-        return new RList(vals, new RPairlist().setAttr("names", new RString(keys)));
+        return new RList(vals, new RPairlist().put("names", new RString(keys)));
     }
 
     /**

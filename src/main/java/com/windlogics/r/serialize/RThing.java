@@ -62,7 +62,7 @@ public abstract class RThing<T> {
     public RThing setAttr(String key, RThing value) {
         if (attrs == null)
             attrs = new RPairlist();
-        attrs.setAttr(key, value);
+        attrs.put(key, value);
         return this;
     }
 

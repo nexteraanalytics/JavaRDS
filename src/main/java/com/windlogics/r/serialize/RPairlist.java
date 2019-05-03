@@ -43,7 +43,7 @@ public class RPairlist extends RThing<Object> {
         return content.containsKey(key);
     }
 
-    @Override public RPairlist setAttr(String key, RThing value) {
+    public RPairlist put(String key, RThing value) {
         content.put(key, value);
         return this;
     }
