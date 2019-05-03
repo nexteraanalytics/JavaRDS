@@ -19,12 +19,12 @@ public class JavaRDSTest {
 
     private byte[] toBytes(RThing rt) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        JavaRDS.write_rds(rt, baos, false);
+        JavaRDS.writeRDS(rt, baos, false);
         return baos.toByteArray();
     }
 
     @Test
-    public void write_rds() throws IOException {
+    public void writeRDS() throws IOException {
 
         RList data = NamedList(
                 "A3", RDataframe(

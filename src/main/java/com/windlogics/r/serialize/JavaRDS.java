@@ -41,7 +41,7 @@ import java.util.zip.GZIPOutputStream;
  *           "grname", new RString(Arrays.asList("cranadmin", "cranadmin"))
  *   ).setAttr("row.names", new RString(Arrays.asList("aaMI/aaMI_1.0-0.tar.gz", "aaMI/aaMI_1.0-1.tar.gz")))
  * );
- * JavaRDS.write_rds(data, "myData.rds");
+ * JavaRDS.writeRDS(data, "myData.rds");
  * </pre>
  *
  *
@@ -80,7 +80,7 @@ public class JavaRDS {
         return (v << 16) | (p << 8) | s;
     }
 
-    public static void write_rds(RThing x, OutputStream os, boolean compress) throws IOException {
+    public static void writeRDS(RThing x, OutputStream os, boolean compress) throws IOException {
         if (compress) {
             os = new GZIPOutputStream(os);
         }
@@ -95,13 +95,12 @@ public class JavaRDS {
         x.serialize(dos);
     }
 
-
-    public static void write_rds(RThing x, OutputStream os) throws IOException {
-        write_rds(x, os, true);
+    public static void writeRDS(RThing x, OutputStream os) throws IOException {
+        writeRDS(x, os, true);
     }
 
-    public static void write_rds(RThing x, String file) throws IOException {
-        write_rds(x, new FileOutputStream(file));
+    public static void writeRDS(RThing x, String file) throws IOException {
+        writeRDS(x, new FileOutputStream(file));
     }
 
     ////////////////////////////////////////////////////////////////////////////
