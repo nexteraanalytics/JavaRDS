@@ -4,6 +4,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * An R character vector
+ */
 public class RString extends RThing<String> {
     private static int STRING_START = 0x40009; // Probably an encoding marker?
 

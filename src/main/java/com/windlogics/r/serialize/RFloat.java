@@ -4,6 +4,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * A double-precision floating-point R vector
+ */
 public class RFloat extends RThing<Double> {
     public RFloat(List<Double> d) { this(d, null); }
     public RFloat(List<Double> d, RPairlist attrs) { super(d, attrs); }

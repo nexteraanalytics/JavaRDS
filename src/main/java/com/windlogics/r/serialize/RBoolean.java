@@ -4,6 +4,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * An R logical vector
+ */
 public class RBoolean extends RThing<Boolean> {
     public RBoolean(List<Boolean> d) { this(d, null); }
     public RBoolean(List<Boolean> d, RPairlist attrs) { super(d, attrs); }

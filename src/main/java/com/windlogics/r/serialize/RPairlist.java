@@ -7,6 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * An R pairlist, which is also used for attributes on other R objects
+ */
 public class RPairlist extends RThing<Object> {
     // This class is used for attributes too
     public RPairlist() { this(new ArrayList<>()); }
