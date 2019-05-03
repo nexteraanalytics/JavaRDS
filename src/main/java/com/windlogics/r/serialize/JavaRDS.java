@@ -74,6 +74,7 @@ import java.util.zip.GZIPOutputStream;
  * </pre>
  */
 public class JavaRDS {
+    private JavaRDS() {}  // No public constructor
 
     private static int version(int v, int p, int s) {
         return (v << 16) | (p << 8) | s;
