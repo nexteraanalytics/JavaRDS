@@ -2,25 +2,34 @@ package com.windlogics.r.serialize;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * An R pairlist, which is also used for attributes on other R objects
  */
 public class RPairlist extends RThing<Object> {
-    // This class is used for attributes too
-    public RPairlist() { this(new ArrayList<>()); }
-    public RPairlist(List<Object> d) { this(d, null); }
-    public RPairlist(List<Object> d, RPairlist attrs) {
-        super(d, attrs);
-        data = null;  // Shouldn't be used
-        content = new LinkedHashMap<>();
-    }
-
+    // Use our own member variable instead of `data`, since we have incompatible types
     protected Map<String, RThing> content;
+
+    /**
+     * Construct a new pairlist with no entries
+     */
+    public RPairlist() { this(null); }
+
+    /**
+     * Construct a new pairlist with the entries given in `d`.  `d` is stored by reference, not cloned.
+     */
+    public RPairlist(Map<String, RThing> d) { this(d, null); }
+
+    /**
+     * Construct a new pairlist with the entries given in `d` and attributes given in `attrs`.  The
+     * arguments are stored by reference, not cloned.
+     */
+    public RPairlist(Map<String, RThing> d, RPairlist attrs) {
+        super(null, attrs);
+        content = d == null ? new LinkedHashMap<>() : d;
+    }
 
     @Override public void putData(DataOutputStream os) throws IOException {
         for (Map.Entry<String, RThing> e : content.entrySet()) {
