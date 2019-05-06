@@ -141,15 +141,14 @@ public class JavaRDS {
     }
 
     /**
-     * Create a new `data.frame` with no
+     * Create a new `data.frame`
+     *
      * @param elements
-     *   a list of objects - elements should alternate between `String`s and
-     *   `RThing`s.  Each String name is followed by its corresponding value in
+     *   a list of objects - elements should alternate between `String`s (column names) and
+     *   `RThing`s (column data).  Each name is followed by its corresponding value in
      *   the list.  All values should have the same length, but this is not currently
      *   enforced (until you try to load the data in R, when you will probably get
      *   an error).
-     *
-     * @return
      */
     public static RThing RDataframe(Object... elements) {
         RList df = RNamedList(elements);
