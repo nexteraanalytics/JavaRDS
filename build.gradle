@@ -61,3 +61,8 @@ nexus {
     repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
     snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
 }
+
+javadoc {
+    // Let us omit argument docs, at least for now
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
