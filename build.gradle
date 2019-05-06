@@ -64,5 +64,5 @@ nexus {
 
 javadoc {
     // Let us omit argument docs, at least for now
-    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addBooleanOption('Xdoclint:none', true)
 }
