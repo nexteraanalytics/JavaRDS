@@ -4,3 +4,8 @@
 # Ignore Gradle build output directory
 build
 gradle.properties
+.idea
+JavaRDS.iml
+src/main/main.iml
+src/test/test.iml
+venv
